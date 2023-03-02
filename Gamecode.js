@@ -12,6 +12,7 @@ $('table tr td').click(function(){
         }
         move++;
         console.log(findWinner())
+        //Check if there is a win state
         if (findWinner() != -1 && findWinner() != ""){
             if(findWinner()=="X"){
                 $('body').append('<div class="winner"><span>Winner</span> X</div>');
@@ -28,6 +29,7 @@ $('table tr td').click(function(){
                 play = false;
             }
         }
+        //Check if game is tied
         else if(findWinner() == -1 && move == 10){
             $('body').append('<div class="winner"><span>No Winner</span>Tie</div>');
             $('body').append('<button onclick="location.reload()">Play Again</button>')
