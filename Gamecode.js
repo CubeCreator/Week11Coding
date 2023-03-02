@@ -11,19 +11,29 @@ $('table tr td').click(function(){
             $(this).css('color', '#e85a4f');
         }
         move++;
+        console.log(findWinner())
         if (findWinner() != -1 && findWinner() != ""){
             if(findWinner()=="X"){
                 $('body').append('<div class="winner"><span>Winner</span> X</div>');
-                $('body').append('<button onclick="location.reload()">Play Again<button>')
+                $('body').append('<button onclick="location.reload()">Play Again</button>')
                 $('.winner').css('background-color', '#61892f');
                 $('button').css('color', '#61892f')
+                play = false;
             }
             else if(findWinner()=="O"){
                 $('body').append('<div class="winner"><span>Winner</span> O</div>');
-                $('body').append('<button onclick="location.reload()">Play Again<button>')
+                $('body').append('<button onclick="location.reload()">Play Again</button>')
                 $('.winner').css('background-color', '#e85a4f');
                 $('button').css('color', '#e85a4f')
+                play = false;
             }
+        }
+        else if(findWinner() == -1 && move == 10){
+            $('body').append('<div class="winner"><span>No Winner</span>Tie</div>');
+            $('body').append('<button onclick="location.reload()">Play Again</button>')
+            $('.winner').css('background-color', '#272727');
+            $('button').css('color', '#FFFFFF')
+            play = false;
         }
     }
 });
